@@ -9,6 +9,17 @@
 - Toggle: `persist.sys.vk_use_ogl_for_media=true`.
 - Applies after SurfaceFlinger is recreated or the device is rebooted.
 
+## Motivation
+
+This research starts from Android's Vulkan-first graphics policy declaration:
+
+- Vulkan is the primary low-level graphics API on Android.
+- Vulkan is the preferred Android interface to the GPU.
+- OpenGL ES remains supported, but it is no longer under active feature development.
+- Android 15 and newer include ANGLE as a path for running OpenGL ES over Vulkan, with a roadmap for shipping ANGLE as the GL system driver on more new devices.
+
+Axion needs Vulkan enabled for UI features such as Skia glass blur. The goal is to keep affected devices aligned with that Vulkan-first direction while avoiding video issues on targets with known Vulkan media sampling problems.
+
 ## Background
 
 SurfaceFlinger composes visible layers from producers such as OpenGL ES, Canvas, Vulkan, camera, and media decoder paths. Hardware Composer handles layers that can be composed by display hardware. RenderEngine handles layers that require client composition.
@@ -94,5 +105,7 @@ Leave the fallback disabled on devices where Vulkan media sampling is correct. T
 - SurfaceFlinger and WindowManager: https://source.android.com/docs/core/graphics/surfaceflinger-windowmanager
 - Hardware Composer HAL: https://source.android.com/docs/core/graphics/hwc
 - Vulkan: https://source.android.com/docs/core/graphics/arch-vulkan
+- Use Vulkan for graphics: https://developer.android.com/games/develop/vulkan/overview
+- Vulkanised 2024: Vulkan on Android: https://www.youtube.com/watch?v=0Z-J0XBmvEw&t=31
 - Implement OpenGL ES and EGL: https://source.android.com/docs/core/graphics/implement-opengl-es
 - BufferQueue and Gralloc protected buffers: https://source.android.com/docs/core/graphics/arch-bq-gralloc
