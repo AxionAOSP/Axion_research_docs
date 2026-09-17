@@ -6,5 +6,5 @@ Research notes for AxionOS works.
 
 | Document | Topic |
 |---|---|
-| [AxBoostFwk / AxBurstEngine Research](AxBoostFwk_Research.md) | System performance boosting, scheduler policy, and UI animation responsiveness. |
+| [AxDragonite Performance Engine](AxDragonite_Research.md) | Scene-based performance engine, dynamic CPU topology scheduling, thread pinning, and UI responsiveness. |
 | [Vulkan enforcement and media fixes](Vulkan_enforcement_and_media_fixes.md) | Vulkan-first graphics enablement with media-specific handling for affected devices. |
